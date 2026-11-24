@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#16483e">
+  <title>语音真实性盲评 · 听辨间</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/style.css">
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <header class="mast"><div class="mast-inner">
+    <span class="brand"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>听辨间</span>
+    <span class="site-type">听音测试</span>
+  </div></header>
+  <main>
+    <div id="notice" role="alert" hidden></div>
+    <section id="welcome">
+      <div class="cover">
+        <h1>语音真实性盲评</h1>
+        <p>每轮随机编排录音。请逐段聆听，按下面五个问题独立评分。</p>
+        <div class="cover-meta" id="round-info">正在读取题库…</div>
+      </div>
+      <div class="sheet intro">
+        <h2>听评说明</h2>
+        <p id="reference-info"></p>
+        <ol id="criteria" class="criteria"></ol>
+        <div class="intro-action">
+          <strong>每项 1–5 分，分数越高越自然</strong>
+          <button id="start" class="primary" disabled>开始盲评</button>
+        </div>
+      </div>
+    </section>
+    <section id="survey" hidden>
+      <div class="progress-title"><h1 id="question-title" tabindex="-1"></h1><span id="progress-count"></span></div>
+      <progress id="progress" aria-label="已完成样本数"></progress>
+      <div class="reference" id="reference-panel" hidden>
+        <div><strong>真人参考音</strong><small>可随时回听，用于对照音色</small></div>
+        <audio id="reference" aria-label="真人参考音" controls preload="metadata"></audio>
+      </div>
+      <div class="sheet">
+        <div class="sample-tabs" id="sample-tabs" aria-label="本题的样本"></div>
+        <div class="player">
+          <div class="player-caption"><strong id="clip-name"></strong><span>待评录音</span></div>
+          <audio id="clip" aria-label="待评录音" controls preload="metadata"></audio>
+          <p class="audio-error" hidden id="audio-error">此录音无法播放，请检查连接或联系测试组织者。</p>
+        </div>
+        <div class="rating-header"><h2>这段录音听起来有多自然？</h2><span>1 分最低 · 5 分最高</span></div>
+        <div id="rating-rows"></div>
+        <label class="feedback-label" for="sample-feedback">对这段录音的反馈（选填）</label>
+        <textarea id="sample-feedback" rows="3" placeholder="可以写下印象最深的一处，也可以标出录音里的时间点。"></textarea>
+        <p class="validation" id="validation" role="status"></p>
+        <div class="controls"><button class="secondary" id="back">上一个样本</button>
+          <button class="primary" id="next">下一个样本</button></div>
+      </div>
+    </section>
+    <section class="sheet finish" id="finish" hidden>
+      <span class="check" aria-hidden="true">✓</span>
+      <h1 tabindex="-1" id="finish-title">评分已保存</h1>
+      <p id="finish-message"></p>
+      <p>再次参加会重新抽题，每轮评分独立保存。</p>
+      <button id="again" class="primary">再做一轮</button>
+    </section>
+    <noscript>请启用 JavaScript 后参加盲评。</noscript>
+  </main>
+</body>
+</html>

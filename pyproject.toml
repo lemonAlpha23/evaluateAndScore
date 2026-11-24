@@ -1,0 +1,17 @@
+[project]
+name = "evaluateandscore"
+version = "0.1.0"
+description = "局域网语音真实性盲评与评分记录"
+readme = "README.md"
+authors = [
+    { name = "liuBingWei", email = "lemonsix23@163.com" }
+]
+requires-python = ">=3.15"
+dependencies = []
+
+[project.scripts]
+evaluateandscore = "evaluateandscore:main"
+
+[build-system]
+requires = ["uv_build>=0.13.8,<0.14.0"]
+build-backend = "uv_build"

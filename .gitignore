@@ -1,0 +1,16 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# 局域网听评记录包含参与者 IP
+src/evaluateandscore/result/*.json
+src/evaluateandscore/result/*.tmp
+/src/evaluateandscore/datasets/
+
